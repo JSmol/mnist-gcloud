@@ -15,4 +15,4 @@ The jobs will:
 
 The scripts are easiliy modified to add features such as reading a pre trained models from google storage to resume a former training session. Ideally specific paths should be specified 
 
-*This repo is an example for future projects that I cannot reasonably run locally. I followed the google supplied examples closesly, but this is baseline suited to smaller one-man-army projects.*
+*This repo is an example for future projects that I cannot reasonably run locally. I followed the google supplied examples closesly, but this is smaller baseline suited to my own one-man-army projects.*
