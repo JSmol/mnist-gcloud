@@ -21,12 +21,12 @@ def get_args():
   )
   args_parser.add_argument(
     '--batch-size',
-    default=100,
+    default=10,
     type=int,
   )
   args_parser.add_argument(
     '--learning-rate',
-    default=0.001,
+    default=0.0001,
     type=float,
   )
   args_parser.add_argument(
@@ -45,7 +45,6 @@ def get_args():
     type=float,
   )
   
-
   return args_parser.parse_args()
 
 import mnist

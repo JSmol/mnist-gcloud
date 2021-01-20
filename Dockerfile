@@ -2,6 +2,7 @@
 FROM gcr.io/cloud-aiplatform/training/pytorch-gpu.1-4:latest
 
 RUN pip install pandas google-cloud-storage
+# RUN gcloud auth activate-service-account --key-file=/tmp/keys/gcp.json
 
 # Copy all the trainer code 
 WORKDIR /root

@@ -18,12 +18,10 @@ gcloud beta ai-platform jobs submit training ${JOB_NAME} \
     --scale-tier BASIC_GPU \
     -- \
     --data-path=gs://mnist-train \
-    --epochs=100 \
-    --batch-size=100 \
-    --learning-rate=0.001 \
-    --weight-decay=0.001 \
-    --beta1=0.5 \
-    --beta2=0.9
+    --epochs=20 \
+    --batch-size=10 \
+    --learning-rate=0.0001 \
+    --weight-decay=0 \
 
 # # Stream the logs from the job
 gcloud ai-platform jobs stream-logs ${JOB_NAME}
