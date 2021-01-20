@@ -7,4 +7,5 @@ workerPoolSpecs:
     imageUri: 
     args:
     - data-path=data
+    - bucket-name=python-trained-models
     - epochs=20

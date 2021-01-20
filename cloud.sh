@@ -1,5 +1,6 @@
 # CHANGE the URI to match project
-IMAGE_URI=gcr.io/aesthetic-fx-300721/torch-gpu:mnist
+PROJECT=aesthetic-fx-300721
+IMAGE_URI=gcr.io/${PROJECT}/torch-gpu:mnist
 docker build -t ${IMAGE_URI} .
 
 # CHANGE the JOB_NAME to match project
@@ -11,13 +12,14 @@ docker push ${IMAGE_URI}
 
 # this sends the job to ai platform jobs
 # after -- \ the arguments will be passed to the docker image!
-# NOTE the image can access gs://
+# NOTE: the image can access gs:// with pd.read_csv
 gcloud beta ai-platform jobs submit training ${JOB_NAME} \
     --region ${REGION} \
     --master-image-uri ${IMAGE_URI} \
     --scale-tier BASIC_GPU \
     -- \
     --data-path=gs://mnist-train \
+    --bucket-name=python-trained-models \
     --epochs=20 \
     --batch-size=10 \
     --learning-rate=0.0001 \

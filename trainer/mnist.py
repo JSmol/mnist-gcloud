@@ -10,7 +10,7 @@ from torchvision import transforms
 from datetime import datetime
 from google.cloud import storage
 
-def run(data_path, seed, batch_size, epochs, learning_rate, weight_decay, beta1, beta2):
+def run(data_path, bucket_name, seed, batch_size, epochs, learning_rate, weight_decay, beta1, beta2):
 
   # set device (it should read 'cuda' when running in GCP!!)
   if torch.cuda.is_available(): device = f'cuda:{torch.cuda.current_device()}'
@@ -63,7 +63,7 @@ def run(data_path, seed, batch_size, epochs, learning_rate, weight_decay, beta1,
 
   # save the model to the gs://python-trained-models bucket
   filename = f'{datetime.now().strftime("%Y-%m-%d-%s")}.pt'
-  bucket = storage.Client().bucket('python-trained-models')
+  bucket = storage.Client().bucket(bucket_name)
   blob = bucket.blob(filename)
   torch.save(model.state_dict(), 'model.pt')
   blob.upload_from_filename('model.pt')

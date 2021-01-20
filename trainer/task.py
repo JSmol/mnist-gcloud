@@ -2,9 +2,12 @@ import argparse
 def get_args():
   args_parser = argparse.ArgumentParser()
 
-  # path to data
   args_parser.add_argument(
     '--data-path',
+    required=True,
+  )
+  args_parser.add_argument(
+    '--bucket-name',
     required=True,
   )
 
